@@ -27,3 +27,9 @@
 - `doc/historico_chat.md`: registro cumulativo de pedidos, ações e validações.
 - `doc/changelog.md`: histórico objetivo de alterações.
 - `doc/info_project_files.md`: mapa dos arquivos relevantes do projeto.
+
+## Publicação
+
+- GitHub: `https://github.com/r3vmarcos/vinydrone`.
+- Branch principal: `main`.
+- Cloudflare Pages: `https://vinydrone.pages.dev/`.
