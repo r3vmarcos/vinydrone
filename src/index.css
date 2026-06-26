@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Rajdhani, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*::before,
+*::after {
+  font-family: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Rajdhani, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050505;
+}
+
+/* === FUNDO PARALLAX DO SITE | inicio === */
+
+.site-parallax-bg {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(14, 165, 233, 0.16), transparent 28rem),
+    radial-gradient(circle at 82% 42%, rgba(249, 115, 22, 0.11), transparent 30rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px),
+    #050505;
+  background-attachment: fixed, fixed, fixed, scroll;
+  background-position: center;
+  background-size: auto, auto, 72px 72px, auto;
+}
+
+.site-parallax-bg main,
+.site-parallax-bg footer {
+  position: relative;
+  z-index: 0;
+}
+
+/* === FUNDO PARALLAX DO SITE | fim === */
+
+/* === FONTE GLOBAL FORCADA | inicio === */
+
+.font-display,
+.font-sans,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  font-family: Rajdhani, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+/* === FONTE GLOBAL FORCADA | fim === */
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #38bdf8, #a855f7);
+  border-radius: 999px;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-panel {
+    @apply border border-white/10 bg-white/[0.055] shadow-drone backdrop-blur-2xl;
+  }
+
+  .section-shell {
+    @apply relative overflow-hidden py-14 sm:py-24 lg:py-32;
+    background:
+      linear-gradient(180deg, rgba(5, 5, 5, 0.02) 0%, rgba(5, 5, 5, 0.52) 18%, rgba(5, 5, 5, 0.62) 82%, rgba(5, 5, 5, 0.02) 100%);
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.34em] text-sky-200/80;
+  }
+
+  .titulo-secao-destaque {
+    @apply font-display text-lg font-black uppercase leading-tight tracking-[0.16em] text-sky-400/60 sm:text-2xl sm:leading-none sm:tracking-[0.2em] lg:text-3xl;
+  }
+}
+
+.border-beam-wrapper {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.border-beam-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0deg,
+    transparent 58deg,
+    rgba(125, 211, 252, 0.95) 78deg,
+    rgba(216, 180, 254, 0.95) 95deg,
+    transparent 118deg,
+    transparent 360deg
+  );
+  animation: beam-rotate 4.8s linear infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.border-beam-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+@property --beam-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes beam-rotate {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+
+.video-mask-text {
+  filter: drop-shadow(0 16px 40px rgba(14, 165, 233, 0.25));
+}
+
+.hero-gradient {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.12) 34%, rgba(0, 0, 0, 0.78) 100%),
+    radial-gradient(circle at 35% 65%, rgba(14, 165, 233, 0.20), transparent 36%),
+    radial-gradient(circle at 82% 34%, rgba(168, 85, 247, 0.16), transparent 30%);
+}
+
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.68) 100%);
+  opacity: 0.85;
+  transition: opacity 220ms ease;
+}
+
+.gallery-card:hover::after {
+  opacity: 0.38;
+}
